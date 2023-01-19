@@ -1,0 +1,63 @@
+diff --git a/src/Makefile.in b/src/Makefile.in
+index 7d85042..8dcbec7 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -148,7 +148,7 @@ am_libnftnl_la_OBJECTS = utils.lo batch.lo flowtable.lo common.lo \
+ 	expr/synproxy.lo expr/osf.lo expr/xfrm.lo obj/counter.lo \
+ 	obj/ct_helper.lo obj/quota.lo obj/tunnel.lo obj/limit.lo \
+ 	obj/synproxy.lo obj/ct_timeout.lo obj/secmark.lo \
+-	obj/ct_expect.lo
++	obj/ct_expect.lo expr/fullcone.lo 
+ libnftnl_la_OBJECTS = $(am_libnftnl_la_OBJECTS)
+ AM_V_lt = $(am__v_lt_@AM_V@)
+ am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
+@@ -203,7 +203,8 @@ am__depfiles_remade = ./$(DEPDIR)/batch.Plo ./$(DEPDIR)/chain.Plo \
+ 	obj/$(DEPDIR)/ct_expect.Plo obj/$(DEPDIR)/ct_helper.Plo \
+ 	obj/$(DEPDIR)/ct_timeout.Plo obj/$(DEPDIR)/limit.Plo \
+ 	obj/$(DEPDIR)/quota.Plo obj/$(DEPDIR)/secmark.Plo \
+-	obj/$(DEPDIR)/synproxy.Plo obj/$(DEPDIR)/tunnel.Plo
++	obj/$(DEPDIR)/synproxy.Plo obj/$(DEPDIR)/tunnel.Plo \
++	expr/$(DEPDIR)/fullcone.Plo
+ am__mv = mv -f
+ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+ 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+@@ -454,6 +455,7 @@ libnftnl_la_SOURCES = utils.c		\
+ 		      expr/target.c	\
+ 		      expr/tunnel.c	\
+ 		      expr/masq.c	\
++		      expr/fullcone.c	\
+ 		      expr/redir.c	\
+ 		      expr/hash.c	\
+ 		      expr/socket.c	\
+@@ -580,6 +582,7 @@ expr/rt.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+ expr/target.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+ expr/tunnel.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+ expr/masq.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
++expr/fullcone.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+ expr/redir.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+ expr/hash.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+ expr/socket.lo: expr/$(am__dirstamp) expr/$(DEPDIR)/$(am__dirstamp)
+@@ -651,6 +654,7 @@ distclean-compile:
+ @AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/log.Plo@am__quote@ # am--include-marker
+ @AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/lookup.Plo@am__quote@ # am--include-marker
+ @AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/masq.Plo@am__quote@ # am--include-marker
++@AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/fullcone.Plo@am__quote@ # am--include-marker
+ @AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/match.Plo@am__quote@ # am--include-marker
+ @AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/meta.Plo@am__quote@ # am--include-marker
+ @AMDEP_TRUE@@am__include@ @am__quote@expr/$(DEPDIR)/nat.Plo@am__quote@ # am--include-marker
+@@ -886,6 +890,7 @@ distclean: distclean-am
+ 	-rm -f expr/$(DEPDIR)/log.Plo
+ 	-rm -f expr/$(DEPDIR)/lookup.Plo
+ 	-rm -f expr/$(DEPDIR)/masq.Plo
++	-rm -f expr/$(DEPDIR)/fullcone.Plo
+ 	-rm -f expr/$(DEPDIR)/match.Plo
+ 	-rm -f expr/$(DEPDIR)/meta.Plo
+ 	-rm -f expr/$(DEPDIR)/nat.Plo
+@@ -995,6 +1000,7 @@ maintainer-clean: maintainer-clean-am
+ 	-rm -f expr/$(DEPDIR)/log.Plo
+ 	-rm -f expr/$(DEPDIR)/lookup.Plo
+ 	-rm -f expr/$(DEPDIR)/masq.Plo
++	-rm -f expr/$(DEPDIR)/fullcone.Plo
+ 	-rm -f expr/$(DEPDIR)/match.Plo
+ 	-rm -f expr/$(DEPDIR)/meta.Plo
+ 	-rm -f expr/$(DEPDIR)/nat.Plo

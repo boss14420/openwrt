@@ -1,0 +1,14 @@
+diff --git a/src/Makefile.in b/src/Makefile.in
+index 2d3f70f..3901a1c 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -505,6 +505,9 @@ libnftables_la_LDFLAGS = -version-info ${libnftables_LIBVERSION} \
+ nft_SOURCES = main.c $(am__append_9)
+ nft_LDADD = libnftables.la
+ all: $(BUILT_SOURCES)
++	$(MAKE) maintainer-clean-generic
++	$(MAKE) scanner.c
++	$(MAKE) parser_bison.c parser_bison.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-am
+ 
+ .SUFFIXES:

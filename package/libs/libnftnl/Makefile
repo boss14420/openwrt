@@ -12,9 +12,9 @@ PKG_CPE_ID:=cpe:/a:netfilter:libnftnl
 PKG_VERSION:=1.2.1
 PKG_RELEASE:=$(AUTORELEASE)
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=https://netfilter.org/projects/$(PKG_NAME)/files
-PKG_HASH:=7508a5c414fab13e3cb3ce8262d0ce4f02c1590a8e4f8628ab497b5b4585937c
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/fullcone-nat-nftables/$(PKG_NAME)-$(PKG_VERSION)-with-fullcone.git
+PKG_SOURCE_VERSION:=6c39f04febd7cfdbd474233379416babcd0fc341
 
 PKG_MAINTAINER:=Steven Barth <steven@midlink.org>
 PKG_LICENSE:=GPL-2.0-or-later
